@@ -18,6 +18,10 @@ app.get('/api', (req, res) => {
 })
 
 app.get('/hello/:name', (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://intro-rest.herokuapp.com/');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
     res.status(200).json({
         message: `Hello ${req.params.name}`
     });
